@@ -223,7 +223,7 @@ libc_common_files = [
 
 # These files are used to compile libc for a build machine / your personal computer
 libc_native_files = [
-	'stdio/putchar_native.c',
+	#'stdio/putchar_native.c',
 ]
 
 # These files are used when cross-compiling libc for another platform
@@ -235,12 +235,6 @@ libc_standalone_files = [
 libc_includes = include_directories('../include')
 
 libc_compiler_flags = []
-
-c_native = static_library('libc',
-    libc_common_files + libc_native_files,
-    include_directories: libc_includes,
-    c_args: libc_compiler_flags,
-)
 
 arch_specific_includes = include_directories('../arch/x86_64/include')
 
