@@ -6,4 +6,19 @@ project('Embedded Artistry libc',
 	license: 'MIT',
 	meson_version: '>0.51.0',
 	version: '1.0')
+
+libprintf_files = files('subprojects/printf/printf.c')
+libprintf_includes = include_directories('subprojects/printf', is_system: true)
+
+libprintf = static_library(
+	'printf',
+    libprintf_files,
+    include_directories: libprintf_includes,
+)
+
+libprintf_dep = declare_dependency(
+	include_directories: libprintf_includes,
+	link_with: libprintf,
+)
+
 subdir('src')

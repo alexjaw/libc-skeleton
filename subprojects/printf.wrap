@@ -1,0 +1,5 @@
+[wrap-git]
+#url=git@github.com:mpaland/printf.git
+url=https://github.com/mpaland/printf.git
+revision=d3b9846
+
