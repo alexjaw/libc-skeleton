@@ -6,7 +6,10 @@ project('Embedded Artistry libc',
 	license: 'MIT',
 	meson_version: '>0.51.0',
 	version: '1.0')
-
+	
+#############################
+# Printf Dependency Targets #
+#############################
 libprintf_files = files('subprojects/printf/printf.c')
 libprintf_includes = include_directories('subprojects/printf', is_system: true)
 
@@ -21,4 +24,24 @@ libprintf_dep = declare_dependency(
 	link_with: libprintf,
 )
 
+###############################
+# Openlibm Dependency Targets #
+###############################
+openlibm_includes = include_directories(
+    'subprojects/openlibm/include/',
+    'subprojects/openlibm/src',
+    is_system: true
+)
+
+openlibm = static_library(
+	'openlibm',
+    include_directories: openlibm_includes,
+)
+
+openlibm_dep = declare_dependency(
+	include_directories: openlibm_includes,
+	link_with: openlibm,
+)
+
+###############################
 subdir('src')

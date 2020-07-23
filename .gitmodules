@@ -1,3 +1,6 @@
 [submodule "subprojects/printf"]
 	path = subprojects/printf
 	url = https://github.com/mpaland/printf.git
+[submodule "subprojects/openlibm"]
+	path = subprojects/openlibm
+	url = https://github.com/JuliaMath/openlibm.git

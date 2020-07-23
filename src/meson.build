@@ -212,7 +212,7 @@ libc_common_files = [
 	assert_files,
 	ctype_files,
 	locale_files,
-	#math_files,
+	math_files,
 	stdio_files,
 	stdlib_files,
 	string_files,
@@ -243,5 +243,5 @@ libc_native = static_library(
 	libc_common_files + libc_native_files,
 	include_directories: [libc_includes, arch_specific_includes],
 	native: true,
-	dependencies: libprintf_dep,
+	dependencies: [libprintf_dep, openlibm_dep],
 )
