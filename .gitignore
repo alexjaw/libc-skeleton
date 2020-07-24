@@ -1,1 +1,5 @@
 builddir/
+# Meson subprojects
+**/subprojects/**
+!**/subprojects/*.wrap
+!**/subprojects/packagecache/**
