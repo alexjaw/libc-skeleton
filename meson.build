@@ -33,14 +33,15 @@ openlibm_includes = include_directories(
     is_system: true
 )
 
-openlibm = static_library(
-	'openlibm',
-    include_directories: openlibm_includes,
-)
+# Why do we not build a static lib of openlibm?
+#openlibm = static_library(
+#	'openlibm',
+#    include_directories: openlibm_includes,
+#)
 
 openlibm_dep = declare_dependency(
 	include_directories: openlibm_includes,
-	link_with: openlibm,
+#	link_with: openlibm,
 )
 
 ###############################
