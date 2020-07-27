@@ -53,3 +53,4 @@ cmocka_dep = dependency('cmocka', required: false, fallback: ['cmocka', 'cmocka_
 
 ###############################
 subdir('src')
+subdir('test')
