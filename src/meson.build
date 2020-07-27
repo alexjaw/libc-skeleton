@@ -245,3 +245,12 @@ libc_native = static_library(
 	native: true,
 	dependencies: [libprintf_dep, openlibm_dep],
 )
+
+libc_native_dep = declare_dependency(
+    include_directories: [libc_includes,
+                          arch_specific_includes,
+                          openlib_includes,
+                          libprint_includes,
+    ],
+    link_with: libc_native,
+)
