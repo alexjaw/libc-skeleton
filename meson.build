@@ -45,7 +45,11 @@ openlibm_dep = declare_dependency(
 )
 
 ###############################
+# CMocka Dependency Targets #
+###############################
 cmocka_subproject = subproject('cmocka')
 cmocka_dep = cmocka_subproject.get_variable('cmocka_dep')
 cmocka_dep = dependency('cmocka', required: false, fallback: ['cmocka', 'cmocka_dep'])
+
+###############################
 subdir('src')
