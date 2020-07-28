@@ -67,4 +67,9 @@ libc_test_files = files(
 	'test/rand.c'
 )
 
+libc_tests = executable('libc_test',
+    libc_test_files,
+    dependencies: [libc_native_dep, cmocka_dep],
+)
 
+test_output_dir = 'CMOCKA_XML_FILE=' + meson.build_root() + '/test/%g.xml'

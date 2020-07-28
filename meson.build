@@ -54,3 +54,5 @@ cmocka_dep = dependency('cmocka', required: false, fallback: ['cmocka', 'cmocka_
 ###############################
 subdir('src')
 subdir('test')
+test('libc_tests', libc_tests, env: [test_output_dir])
+
