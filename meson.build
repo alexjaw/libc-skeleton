@@ -1,7 +1,7 @@
 project('Embedded Artistry libc',
-	'c',
+	'c', 'cpp',
 	default_options : [
-		'c_std=c11'
+		'c_std=c11', 'cpp_std=c++11'
 	],
 	license: 'MIT',
 	meson_version: '>0.51.0',
@@ -55,4 +55,14 @@ cmocka_dep = dependency('cmocka', required: false, fallback: ['cmocka', 'cmocka_
 subdir('src')
 subdir('test')
 test('libc_tests', libc_tests, env: [test_output_dir])
+
+printf_tests = executable('printf_tests',
+	sources: files('subprojects/printf/test/test_suite.cpp'),
+	include_directories: include_directories('subprojects/printf/test'),
+)
+
+test('printf_tests',
+    printf_tests,
+    args: ['-s', '-r', 'junit', '-o', meson.build_root() + '/test/printf_tests.xml']
+)
 
