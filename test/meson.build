@@ -72,4 +72,12 @@ libc_tests = executable('libc_test',
     dependencies: [libc_native_dep, cmocka_dep],
 )
 
+#############################
+# Register Tests with Meson #
+#############################
+
 test_output_dir = 'CMOCKA_XML_FILE=' + meson.build_root() + '/test/%g.xml'
+
+test('libc_tests',
+	libc_tests,
+	env: [test_output_dir])
